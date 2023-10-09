@@ -39,9 +39,8 @@ def upgrade():
     sa.Column('watch_id', sa.Integer(), nullable=False),
     sa.Column('quantity', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
-    sa.ForeignKeyConstraint(['watch_id'],['watches.id']),
     )
-    
+
     op.create_table('watches',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('brand', sa.String(length=50), nullable=False),
