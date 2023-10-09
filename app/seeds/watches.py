@@ -72,7 +72,7 @@ def seed_watches():
 
 def undo_watches():
     if environment == "production":
-       db.session.execute(f"TRUNCATE table {SCHEMA}.businesses RESTART IDENTITY CASCADE;")
+       db.session.execute(f"TRUNCATE table {SCHEMA}.watches RESTART IDENTITY CASCADE;")
     else:
        db.session.execute(text("DELETE FROM watches"))
 
