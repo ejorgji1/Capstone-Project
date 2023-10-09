@@ -2,8 +2,6 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .reviews import seed_reviews, undo_reviews
 from .watches import seed_watches, undo_watches
-
-
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -32,4 +30,6 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
+    undo_watches()
+    undo_reviews()
     # Add other undo functions here
