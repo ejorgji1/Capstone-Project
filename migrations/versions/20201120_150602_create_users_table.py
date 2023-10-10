@@ -36,9 +36,10 @@ def upgrade():
 
     op.create_table('carts',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('watch_id', sa.Integer(), nullable=False),
+    sa.Column('owner_id', sa.Integer()),
     sa.Column('quantity', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
+    sa.ForeignKeyConstraint(['owner_id'],['users.id']),
     )
 
     op.create_table('watches',
