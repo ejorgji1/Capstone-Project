@@ -23,6 +23,6 @@ class Cart(db.Model):
         return {
             'id': self.id,
             'owner_id': self.owner_id,
-            'watch_id': self.watch_id,
             'quantity': self.quantity,
+            'watches': [watch.to_dict() for watch in self.watches],
         }
