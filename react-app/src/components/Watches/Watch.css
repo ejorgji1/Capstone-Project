@@ -1,0 +1,28 @@
+.watchMain__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .watchMain__item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .watchMain__image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .watchMain__name {
+    font-weight: bold;
+  }
+  
+  .watchMain__brand {
+    color: #333;
+  }
+  
+  .watchMain__price {
+    color: green;
+  }
