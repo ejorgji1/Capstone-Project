@@ -9,6 +9,7 @@ import AllWatches from "./components/Watches"
 import WatchDetail from "./components/OneWatch"
 import AddWatch from "./components/CreateWatchForm"
 import EditWatch from "./components/EditWatch";
+import YourWatches from "./components/OwnedWatches";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/watch/:id">
             <WatchDetail />
+          </Route>
+          <Route path="/owned">
+            <YourWatches />
           </Route>
         </Switch>
       )}

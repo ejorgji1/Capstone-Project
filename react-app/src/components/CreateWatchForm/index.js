@@ -76,7 +76,7 @@ function AddWatch() {
      console.log("This is Watch Data:", watchData)
     await dispatch(watchActions.createNewWatch(watchData));
 
-    history.push(`/watch/all`);
+    history.push(`/owned`);
   };
 
   useEffect(() => {

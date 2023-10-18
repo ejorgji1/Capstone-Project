@@ -2,37 +2,47 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import * as watchActions from '../../store/watch';
-import './Watch.css';
 
-function WatchMainPage () {
-    const dispatch = useDispatch()
+function YourWatches () {
+
+    const dispatch = useDispatch();
+
+    const currentUser = useSelector(state => state.session.user);
+
     const watches = useSelector(state => state.watch.list)
-    console.log("WATCH:", watches)
-    console.log(typeof watches)
+
 
     useEffect(() => {
         dispatch(watchActions.getAllWatches());
     }, [dispatch]);
 
+    if (!watches || !watches['Watches']) {
+        return <div>Loading...</div>;
+      }
+
+    const ownedWatches = watches && watches['Watches'].filter(
+        watch => watch.owner_id === currentUser.id
+    );
+    console.log("OWNED WATCHES", ownedWatches)
+
 
     return (
         <div className='watchMain__grid'>
-          {watches && watches["Watches"] ? (
-            watches["Watches"].map((watch) => (
-              <div key={watch.id} className='watchMain__item'>
+        {ownedWatches.length > 0 ? (
+            ownedWatches.map((watch) => (
+            <div key={watch.id} className='watchMain__item'>
                 <img src={watch.image_url} alt={`Image of ${watch.model_name}`} className='watchMain__image' />
                 <p className="watchMain__name">{watch.model_name}</p>
                 <p className="watchMain__brand">Brand: {watch.brand}</p>
                 <p className="watchMain__price">Price $: {watch.price}</p>
                 <Link to={`/watch/${watch.id}`}>View More</Link>
-              </div>
+            </div>
             ))
-          ) : (
-            <p>No watches found.</p>
-          )}
+        ) : (
+            <p>Currently you have no watches listed for sale. Will you want to sell one?</p>
+        )}
         </div>
-      );
-};
+    );
+}
 
- export default WatchMainPage;
-
+export default YourWatches

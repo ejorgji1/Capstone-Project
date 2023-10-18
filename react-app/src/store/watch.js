@@ -77,7 +77,7 @@ export const setWatch = (watch) => ({
     // console.log("this is thunk response", response)
     if (response.ok) {
       const data = await response.json();
-    //   console.log("ALL WATCHES", data);
+    console.log("ALL WATCHES", data);
       dispatch(setAllWatches(data));
     } else {
       console.error("Thunk Error: Bad Req");
@@ -85,7 +85,7 @@ export const setWatch = (watch) => ({
   };
   
   export const createNewWatch = (watch) => async (dispatch) => {
-    // console.log("This is the create Bussiness:", business);
+    
     const response = await fetch(`/api/watch/new-watch`, {
       method: "POST",
       headers: {
@@ -96,7 +96,7 @@ export const setWatch = (watch) => ({
   
     if (response) {
       const data = await response.json();
-      // console.log("This is the data for create business:", data);
+     
       dispatch(addWatch(data));
       return data;
     } else {
@@ -122,7 +122,7 @@ export const setWatch = (watch) => ({
     // console.log("This ID:", id)
     // console.log('This is the update watch:', updatedWatch)
     const response = await fetch(`/api/watch/${id}/edit`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -131,7 +131,6 @@ export const setWatch = (watch) => ({
   
     if (response.ok) {
       const data = await response.json();
-      // console.log("This is the updated data:", data)
       dispatch(updateWatch(data));
       return data;
     } else {

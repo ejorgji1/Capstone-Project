@@ -9,7 +9,7 @@ function EditWatch() {
   const history = useHistory();
   const { id } = useParams();
   const watches = useSelector((state) => state.watch.list);
-    console.log("😇", watches)
+    //console.log("😇", watches)
   const watch = useSelector((state) =>
     state.watch.list.Watches
       ? state.watch.list.Watches.find((b) => b.id === parseInt(id))
@@ -80,6 +80,7 @@ function EditWatch() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('handleSubmit triggered');
     const errors = validate({
       brand,
       model_name,
@@ -87,6 +88,7 @@ function EditWatch() {
       about,
       description,
       image_url,
+      // owner_id,
     });
 
     if (errors.length > 0) return setValidationErrors(errors);
@@ -99,14 +101,16 @@ function EditWatch() {
       about,
       description,
       image_url,
-      owner_id,
+      // owner_id,
     };
-    // console.log("WATCH DATA", watchData)
-    await dispatch(watchActions.updateWatch(id, watchData));
+    console.log("WATCH UPDATE", watchData)
+    await dispatch(watchActions.editWatch(id, watchData));
     await dispatch(watchActions.fetchOneWatch(id));
     await dispatch(watchActions.getAllWatches());
     await history.push(`/watch/${id}`);
   };
+
+  //console.log('Rendering EditWatch component');
 
   return (
     <div className="form__container watch__form">
