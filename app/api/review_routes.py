@@ -35,7 +35,7 @@ def get_user_reviews():
 
 
 @review_routes.route('/<int:id>/reviews')
-def single_business_reviews(id):
+def single_watch_reviews(id):
     watch = Watch.query.get(id)
     reviews = Review.query.filter_by(watch_id=id).all()
     
