@@ -44,17 +44,18 @@ export const setWatch = (watch) => ({
   });
 
   //Thunks
-  export const searchBusinessByName = (search) => async (dispatch) => {
-    const response = await fetch(`api/watch/search`, {
+  export const searchWatchByBrand = (search) => async (dispatch) => {
+    const response = await fetch(`/api/watch/search`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ search }),
     });
+    console.log("THIS IS RESPONSE OF SEARHC THUNK", response)
     if (response.ok) {
       const results = await response.json();
-      // console.log("YOOOO SEARCH THUNK ", results);
+    console.log("YOOOO SEARCH THUNK ", results);
       dispatch(searchWatch(results));
     } else {
       const errorData = await response.json();
