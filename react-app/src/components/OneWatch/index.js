@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOneWatch } from "../../store/watch";
 import { useParams, useHistory } from "react-router-dom";
@@ -9,22 +9,27 @@ import { allReviewsThunk, oneWatchReviewsThunk } from "../../store/review";
 import PostReviewModal from "../PostReviewModal";
 import DeleteReviewModal from "../DeleteReviewModal";
 import EditReviewModal from "../EditReviewModal";
+import { addToCartThunk, getUserCartThunk } from "../../store/cart";
 
 function WatchDetail() {
 
 const history = useHistory();
 const dispatch = useDispatch();
 const { id } = useParams();
+const [addedToCart, setAddedToCart] = useState(false)
 const watch = useSelector((state) => state.watch.selectedWatch);
 const currentUser = useSelector((state) => state.session.user);
 const user = useSelector((state) => state.session.user);
 const reviews = useSelector((state) => state.reviews.currentWatchReviews);
+const userCart = useSelector((state) => state.cart.cart)
+console.log('THIS IS USER CART',userCart)
 console.log('🥰' ,reviews)
 
   useEffect(() => {
     console.log("Fetching watch with id:", id);
     dispatch(fetchOneWatch(id));
     dispatch(oneWatchReviewsThunk(id))
+    dispatch(getUserCartThunk())
   }, [dispatch, id]);
 
 if (!watch) return <div>Loading...</div>;
@@ -35,10 +40,26 @@ if (!reviews) {
 
 console.log("Watch details:", watch);
 
+const isWatchInCart = userCart.watches.some((cartWatch) => cartWatch.id === watch.id);
+
 
 const handleEdit = () => {
     history.push(`/watch/${watch.id}/edit`);
 };
+
+const handleAddToCart = () => {
+  if (currentUser) {
+    dispatch(addToCartThunk(watch.id))
+    setAddedToCart(true)
+  }else {
+    return (
+      <h1>
+        Please log in to add a watch to your cart!!
+      </h1>
+    )
+  }
+
+}
 
 const changeDate = (date) => {
   let newDate = new Date(date)
@@ -77,6 +98,14 @@ return (
           />
         </div>
       )}
+        {(!currentUser || currentUser.id !== watch.owner_id) && !isWatchInCart  && !addedToCart ? (
+          <button
+            className="add-to-cart-button"
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </button>
+        ) : null}
 </div>
 <div className="postYourReview">
   {user &&

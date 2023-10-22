@@ -11,6 +11,7 @@ import AddWatch from "./components/CreateWatchForm"
 import EditWatch from "./components/EditWatch";
 import YourWatches from "./components/OwnedWatches";
 import SearchResults from "./components/SearchResults";
+import UserCart from "./components/UserCart";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path="/owned">
             <YourWatches />
+          </Route>
+          <Route path="/cart">
+            <UserCart />
           </Route>
         </Switch>
       )}

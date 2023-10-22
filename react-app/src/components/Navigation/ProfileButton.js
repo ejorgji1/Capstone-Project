@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { NavLink } from 'react-router-dom';
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
@@ -32,6 +36,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    history.push('/')
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -45,10 +50,13 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
+            <li>Welcome ,{user.username}</li>
+            <li>{user.first_name} {user.last_name}</li>
             <li>{user.email}</li>
-            <li>
-              <button onClick={handleLogout}>Log Out</button>
+            <li className="view-logout-container">
+              <NavLink exact to="/owned" className="view-business-button">View Watch Listings</NavLink>
+              <NavLink exact to="/watch/create-new-watch" className="create-business-button">Create a watch listing</NavLink>
+              <button onClick={handleLogout} className="logout-red-button">Log Out</button>
             </li>
           </>
         ) : (

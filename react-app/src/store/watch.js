@@ -55,7 +55,7 @@ export const setWatch = (watch) => ({
     console.log("THIS IS RESPONSE OF SEARHC THUNK", response)
     if (response.ok) {
       const results = await response.json();
-    console.log("YOOOO SEARCH THUNK ", results);
+    //console.log("YOOOO SEARCH THUNK ", results);
       dispatch(searchWatch(results));
     } else {
       const errorData = await response.json();
