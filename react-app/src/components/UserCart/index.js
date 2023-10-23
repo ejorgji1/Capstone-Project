@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import { getUserCartThunk, removeWatchFromCartThunk, deleteCartThunk } from "../../store/cart";
 
 function UserCart() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const cart = useSelector((state) => state.cart.cart);
+  const history = useHistory();
   console.log("this is cart from frontend", cart)
 
   const [totalPrice, setTotalPrice] = useState(0);
+  const [checkoutComplete, setCheckoutComplete] = useState(false);
+
 
   useEffect(() => {
     if (user) {
@@ -31,13 +35,26 @@ function UserCart() {
  
 
   const handleRemoveWatch = (watchId) => {
-
     dispatch(removeWatchFromCartThunk(watchId));
     calculateTotalPrice()
   };
 
   const handleDeleteCart = () => {
+    if (cart && cart.watches.length > 0) {
+        dispatch(deleteCartThunk());
+      }
     dispatch(deleteCartThunk());
+  };
+
+  const handleCheckout = () => {
+    if (cart && cart.watches.length > 0) {
+        dispatch(deleteCartThunk());
+      }
+    setCheckoutComplete(true);
+    alert("Checkout Successful!")
+    setTimeout(() => {
+      history.push('/');
+    }, 3000);
   };
 
   if (!user) {
@@ -61,6 +78,11 @@ function UserCart() {
       ))}
       <p>Total Price: ${totalPrice}</p>
       <button onClick={handleDeleteCart}>Delete Cart</button>
+      {/* {checkoutComplete ? (
+        <p>Congratulations, Enjoy your purchase!</p>
+      ) : ( */}
+        <button onClick={handleCheckout}>Checkout</button>
+      {/* )} */}
     </div>
   );
 }

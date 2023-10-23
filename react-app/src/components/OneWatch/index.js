@@ -40,7 +40,9 @@ if (!reviews) {
 
 console.log("Watch details:", watch);
 
-const isWatchInCart = userCart.watches.some((cartWatch) => cartWatch.id === watch.id);
+
+
+const isWatchInCart = userCart ? userCart.watches.some((cartWatch) => cartWatch.id === watch.id) : false;
 
 
 const handleEdit = () => {
