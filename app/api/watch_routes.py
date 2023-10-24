@@ -139,6 +139,8 @@ def search_watches():
     form= SearchForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    watch_list = []
+
     if form.validate():
         searchTerm = form.search.data
         watches = Watch.query.filter(Watch.brand.ilike(f'%{searchTerm}%')).all()

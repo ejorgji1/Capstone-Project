@@ -73,6 +73,7 @@ const changeDate = (date) => {
 
 return (
   <div>
+    <div className="watch-detail-container">
     <div className="watch-detail">
       <h2>{watch.model_name}</h2>
       <img
@@ -97,6 +98,7 @@ return (
             buttonText="Delete"
             modalComponent={<DeleteModal watch_data={watch} />}
             id={"delete-business-button"}
+            className="delete-button"
           />
         </div>
       )}
@@ -108,6 +110,7 @@ return (
             Add to Cart
           </button>
         ) : null}
+</div>
 </div>
 <div className="postYourReview">
   {user &&

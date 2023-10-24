@@ -56,7 +56,7 @@ function ProfileButton({ user }) {
             <li className="view-logout-container">
               <NavLink exact to="/owned" className="view-business-button">View Watch Listings</NavLink>
               <NavLink exact to="/watch/create-new-watch" className="create-business-button">Create a watch listing</NavLink>
-              <button onClick={handleLogout} className="logout-red-button">Log Out</button>
+              <button onClick={handleLogout} className="logout-button">Log Out</button>
             </li>
           </>
         ) : (
@@ -65,12 +65,14 @@ function ProfileButton({ user }) {
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
+              id={'log-in-button'}
             />
 
             <OpenModalButton
               buttonText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
+              id={'sign-up-button'}
             />
           </>
         )}

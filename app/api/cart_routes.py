@@ -58,7 +58,7 @@ def get_cart():
     if not cart:
         return jsonify({'message': 'Cart is empty'}), 404
 
-    watches_in_cart = [{'id': watch.id, 'brand': watch.brand, 'model_name': watch.model_name, 'price': float(watch.price)} for watch in cart.watches]
+    watches_in_cart = [{'id': watch.id, 'brand': watch.brand, 'model_name': watch.model_name,'image_url': watch.image_url, 'price': float(watch.price)} for watch in cart.watches]
 
     cart_info = {
         'cart_id': cart.id,

@@ -6,6 +6,7 @@ import './Navigation.css';
 import SearchBar from '../SearchBar';
 import { getUserCartThunk } from '../../store/cart';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import logo from "../../images/logo.png"
 
 
 function Navigation({ isLoaded }){
@@ -37,9 +38,14 @@ function Navigation({ isLoaded }){
 
 	return (
 		<ul>
-			<li>
+			<div className="nav-left">
+        <NavLink exact to="/">
+          <img className="small-logo" src={logo} alt="" />
+        </NavLink>
+      </div>
+			{/* <li>
 				<NavLink exact to="/">Home</NavLink>
-			</li>
+			</li> */}
 			{location.pathname === '/' && (
         <div className='searchbar'>
           <SearchBar />

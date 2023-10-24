@@ -22,7 +22,7 @@
 }
 
 .comment-input {
-    background-color: #f5acac;;
+    background-color: green;;
     width: 100%;
     padding: 5px 0px;
 }
@@ -43,3 +43,4 @@
 .submit-button {
     width: 100%;
 }
+

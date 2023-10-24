@@ -1,28 +1,85 @@
 .watchMain__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-  }
-  
-  .watchMain__item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .watchMain__image {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .watchMain__name {
-    font-weight: bold;
-  }
-  
-  .watchMain__brand {
-    color: #333;
-  }
-  
-  .watchMain__price {
-    color: green;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.watchMain__item {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.watchMain__image {
+
+  width: 110%; 
+  max-width: 350px; 
+  height: auto; 
+  background-color: #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.watchMain__item p {
+  margin: 5px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.watchMain__item a {
+  text-decoration: none;
+  background-color: green;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.watchMain__item a:hover {
+  background-color: green;
+}
+
+
+.watchMain_name {
+font-weight: bold;
+font-size: 22px;
+}
+
+.noResultButton{
+border: solid;
+border-color: rgb(224, 7, 7);
+padding: 10px;
+background-color: rgb(224, 7, 7);
+text-align: center;
+border-radius: 5px;
+font-family: 'Onest', sans-serif;
+color: rgb(255, 255, 255);
+height: fit-content;
+width: fit-content;
+cursor: pointer;
+}
+
+.watchMain__brand {
+  font-style: italic; /* Italicize the brand */
+  color: #555; /* Change text color for brand */
+  font-size: 19px; /* Increase font size for the brand */
+}
+
+.watchMain__price {
+  font-weight: bold;
+  color: #228B22; /* Change text color for the price */
+  font-size: 30px; /* Increase font size for the price */
+}

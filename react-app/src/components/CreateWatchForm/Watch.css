@@ -1,0 +1,71 @@
+.form__container {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Error Message */
+  .error {
+    color: red;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  /* Form Inputs */
+  .input__container h2 {
+    color: green;
+    margin-bottom: 20px;
+  }
+
+  .form__input {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .form__input label, .form__input p {
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+  }
+
+  .form__input input, .form__input textarea, .form__input select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: border 0.3s ease;
+  }
+
+  .form__input input:focus, .form__input textarea:focus, .form__input select:focus {
+    border-color: #007BFF;
+  }
+
+  /* Button Styling */
+  .button__container {
+    text-align: right;
+  }
+
+  .form__button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .form__button:hover {
+    background-color: #00b357;
+  }
+
+  /* Drop-down styling */
+  .groupOption {
+    background-color: #d6ffff;
+  }
+
+
