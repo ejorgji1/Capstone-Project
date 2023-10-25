@@ -12,6 +12,7 @@ import EditWatch from "./components/EditWatch";
 import YourWatches from "./components/OwnedWatches";
 import SearchResults from "./components/SearchResults";
 import UserCart from "./components/UserCart";
+import HighestRated from './components/HighestRated'
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <UserCart />
+          </Route>
+          <Route path =''>
+            <HighestRated/>
           </Route>
         </Switch>
       )}
