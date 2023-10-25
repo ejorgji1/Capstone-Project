@@ -28,14 +28,15 @@ function EditWatch() {
   const [about, setAbout] = useState(watch ? watch.about : "");
   const [description, setDecription] = useState(watch ? watch.description : "");
   const [image_url, setImageUrl] = useState(watch ? watch.image_url : "");
+  const [imageLoading, setImageLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState([]);
 
   const currentUser = useSelector((state) => state.session.user);
   const owner_id = currentUser ? currentUser.id : null;
 
-  const urlValidation = (str) => {
-    return /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/.test(str);
-  };
+  // const urlValidation = (str) => {
+  //   return /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/.test(str);
+  // };
 
   const validate = (values) => {
     const errors = [];
@@ -64,16 +65,16 @@ function EditWatch() {
       errors.push("Invalid description text.");
     }
 
-    if (!values.image_url) {
-      errors.push = "Preview image is required.";
-    }
+    // if (!values.image_url) {
+    //   errors.push = "Preview image is required.";
+    // }
 
-    if (
-      values.image_url &&
-      !values.image_url.match(/(\.png|\.jpg|\.jpeg)\s*$/)
-    ) {
-      errors.push = "iImage URL must end in .png, .jpg, or .jpeg.";
-    }
+    // if (
+    //   values.image_url &&
+    //   !values.image_url.match(/(\.png|\.jpg|\.jpeg)\s*$/)
+    // ) {
+    //   errors.push = "iImage URL must end in .png, .jpg, or .jpeg.";
+    // }
 
     return errors;
   };
@@ -87,24 +88,35 @@ function EditWatch() {
       price,
       about,
       description,
-      image_url,
+      // image_url,
       // owner_id,
     });
 
     if (errors.length > 0) return setValidationErrors(errors);
 
-    const watchData = {
-      id,
-      brand,
-      model_name,
-      price,
-      about,
-      description,
-      image_url,
-      // owner_id,
-    };
-    console.log("WATCH UPDATE", watchData)
-    await dispatch(watchActions.editWatch(id, watchData));
+    // const watchData = {
+    //   id,
+    //   brand,
+    //   model_name,
+    //   price,
+    //   about,
+    //   description,
+    //   // image_url,
+    //   // owner_id,
+    // };
+    const priceAsFloat = parseFloat(price);
+
+    const formData = new FormData();
+    formData.append('brand', brand)
+    formData.append("model_name", model_name);
+    formData.append("price", priceAsFloat);
+    formData.append("about", about);
+    formData.append("description", description);
+    formData.append("image_url", image_url);
+    setImageLoading(true);
+
+     console.log("WATCH UPDATE", formData)
+    await dispatch(watchActions.editWatch(id, formData));
     await dispatch(watchActions.fetchOneWatch(id));
     await dispatch(watchActions.getAllWatches());
     await history.push(`/watch/${id}`);
@@ -121,7 +133,8 @@ function EditWatch() {
           </div>
         ))}
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}
+      encType="multipart/form-data">
         <div className="input__container">
           <h2>Update Watch</h2>
           <div className="form__input">
@@ -175,12 +188,12 @@ function EditWatch() {
             />
           </div>
           <div className="form__input">
-            <label>Image URL</label>
+            <label>Submit a new image if you wish, otherwise, the image won't be updated</label>
             <input
-              type="text"
-              value={image_url}
-              onChange={(e) => setImageUrl(e.target.value)}
-              required
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImageUrl(e.target.files[0])}
+              // required
               placeholder="Submit a link to at least one photo to publish your spot."
             />
           </div>

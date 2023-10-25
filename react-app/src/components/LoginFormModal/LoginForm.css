@@ -1,0 +1,92 @@
+.login-form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* Logo/icon container */
+  .icon-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Icon styling */
+  .icon {
+    width: 60px; /* Adjust the size as needed */
+    height: 60px; /* Adjust the size as needed */
+  }
+  
+  /* Header text (Log In) */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* List of error messages */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Error messages styling */
+  li {
+    color: red;
+  }
+  
+  /* Form group styling */
+  .form-group {
+    margin: 10px 0;
+  }
+  
+  /* Input field styling */
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Log In button styling */
+  .btn-login {
+    width: 100%;
+    background-color: goldenrod;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  /* "or" text styling */
+  .or {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  /* Demo button styling */
+  .btn-demo {
+    width: 100%;
+    background-color: goldenrod;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  /* Centering the buttons */
+  .btn-login,
+  .btn-demo {
+    display: block;
+    margin: 0 auto;
+  }

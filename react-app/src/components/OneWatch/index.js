@@ -4,6 +4,7 @@ import { fetchOneWatch } from "../../store/watch";
 import { useParams, useHistory } from "react-router-dom";
 import "./OneWatch.css";
 import OpenModalButton from "../OpenModalButton";
+import OpenDeleteModalButton from "../OpenDeleteWatchModalButton";
 import DeleteModal from "../DeleteWatchModal"
 import { allReviewsThunk, oneWatchReviewsThunk } from "../../store/review";
 import PostReviewModal from "../PostReviewModal";
@@ -75,17 +76,15 @@ return (
   <div>
     <div className="watch-detail-container">
     <div className="watch-detail">
-      <h2>{watch.model_name}</h2>
       <img
         src={watch.image_url}
         alt={`Image of ${watch.model_name}`}
         className="watch-image" 
       />
-      <p className="watch-paragraph">Brand: {watch.brand}</p>
-      <p className="watch-paragraph">Price: ${watch.price}</p>
-      <p className="watch-paragraph">About: {watch.about}</p>
-      <p className="watch-paragraph">Description: {watch.description}</p>
-      <p className="watch-paragraph">Rating: {watch.avg_rating}</p>
+      <div className="watch-detail-info">
+      <div className="watch-title">
+      <h2>{watch.model_name}</h2>
+      </div>
       {currentUser && currentUser.id === watch.owner_id && (
            <div className="business-buttons-conditional">
             <button
@@ -94,15 +93,15 @@ return (
              >
                 Edit
              </button>
-          <OpenModalButton
+          <OpenDeleteModalButton
             buttonText="Delete"
             modalComponent={<DeleteModal watch_data={watch} />}
             id={"delete-business-button"}
-            className="delete-button"
+            className="edit-business-button"
           />
         </div>
       )}
-        {(!currentUser || currentUser.id !== watch.owner_id) && !isWatchInCart  && !addedToCart ? (
+        {(currentUser &&  currentUser.id !== watch.owner_id) && !isWatchInCart  && !addedToCart ? (
           <button
             className="add-to-cart-button"
             onClick={handleAddToCart}
@@ -110,6 +109,12 @@ return (
             Add to Cart
           </button>
         ) : null}
+      <p className="brandName">Brand: {watch.brand}</p>
+      <p className="watch-paragraph">Price: ${watch.price}</p>
+      <p className="watch-paragraph">About: {watch.about}</p>
+      <p className="watch-paragraph">Description: {watch.description}</p>
+      <p className="watch-paragraph">Rating: {watch.avg_rating}</p>
+      </div>
 </div>
 </div>
 <div className="postYourReview">

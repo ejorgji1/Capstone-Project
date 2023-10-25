@@ -41,7 +41,7 @@
 
 .watchMain__item a {
   text-decoration: none;
-  background-color: green;
+  background-color: goldenrod;
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
@@ -49,7 +49,7 @@
 }
 
 .watchMain__item a:hover {
-  background-color: green;
+  background-color: darkgoldenrod;
 }
 
 
@@ -80,6 +80,6 @@ cursor: pointer;
 
 .watchMain__price {
   font-weight: bold;
-  color: #228B22; /* Change text color for the price */
+  color: darkgoldenrod; /* Change text color for the price */
   font-size: 30px; /* Increase font size for the price */
 }

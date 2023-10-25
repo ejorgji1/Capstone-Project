@@ -89,10 +89,10 @@ export const setWatch = (watch) => ({
     
     const response = await fetch(`/api/watch/new-watch`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(watch),
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+      body: watch,
     });
   
     if (response) {
@@ -110,7 +110,7 @@ export const setWatch = (watch) => ({
     const response = await fetch(`/api/watch/${id}`);
     if (response.ok) {
       const watch = await response.json();
-      console.log("this is thunk response for one wwatch", watch)
+      //console.log("this is thunk response for one wwatch", watch)
       dispatch(setOneWatch(watch));
   
     } else {
@@ -123,16 +123,17 @@ export const setWatch = (watch) => ({
     // console.log("This ID:", id)
     // console.log('This is the update watch:', updatedWatch)
     const response = await fetch(`/api/watch/${id}/edit`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedWatch),
+       method: "PUT",
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+      body: updatedWatch,
     });
   
     if (response.ok) {
       const data = await response.json();
       dispatch(updateWatch(data));
+      console.log('THIS IS UPDATED WATCH DATA FROM THUNK', data)
       return data;
     } else {
       console.error("Thunk Error: Failed to edit WATCH");

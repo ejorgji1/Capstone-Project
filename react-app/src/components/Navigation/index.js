@@ -37,7 +37,7 @@ function Navigation({ isLoaded }){
 
 
 	return (
-		<ul>
+		<div className="nav-container">
 			<div className="nav-left">
         <NavLink exact to="/">
           <img className="small-logo" src={logo} alt="" />
@@ -46,24 +46,24 @@ function Navigation({ isLoaded }){
 			{/* <li>
 				<NavLink exact to="/">Home</NavLink>
 			</li> */}
-			{location.pathname === '/' && (
+			{/* {location.pathname === '/' && ( */}
         <div className='searchbar'>
           <SearchBar />
         </div>
-			)}
+			 {/* )} */}
 			{isLoaded && (
-				<li>
+				<div>
 					<ProfileButton user={sessionUser} />
-				</li>
+				</div>
 			)}
         
         <span class="material-symbols-outlined shopping-cart">
           shopping_cart
         </span>
-        <span className="cart-item-count" >
+        <div className="cart-item-count" >
 			<Link to='/cart'>{cartItemCount}</Link>
-			</span>
-		</ul>
+			</div>
+		</div>
 	);
 }
 

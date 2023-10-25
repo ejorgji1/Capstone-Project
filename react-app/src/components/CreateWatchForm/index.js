@@ -14,15 +14,16 @@ function AddWatch() {
   const [about, setAbout] = useState("");
   const [description, setDecription] = useState("");
   const [image_url, setImageUrl] = useState("");
+  const [imageLoading, setImageLoading] = useState(false);
 
   const [validationErrors, setValidationErrors] = useState([]);
 
   const currentUser = useSelector((state) => state.session.user);
   const owner_id = currentUser ? currentUser.id : null;
 
-  const urlValidation = (str) => {
-    return /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/.test(str);
-  };
+  // const urlValidation = (str) => {
+  //   return /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/.test(str);
+  // };
 
   const validate = () => {
     const errors = [];
@@ -51,9 +52,9 @@ function AddWatch() {
       errors.push = "Preview image is required.";
     }
 
-    if (image_url && !image_url.match(/(\.png|\.jpg|\.jpeg)\s*$/)) {
-      errors.push = "iImage URL must end in .png, .jpg, or .jpeg.";
-    }
+    // if (image_url && !image_url.match(/(\.png|\.jpg|\.jpeg)\s*$/)) {
+    //   errors.push = "iImage URL must end in .png, .jpg, or .jpeg.";
+    // }
 
     return errors;
   };
@@ -62,22 +63,39 @@ function AddWatch() {
     e.preventDefault();
     const errors = validate();
 
-    if (errors.length > 0) return setValidationErrors(errors);
+  if (errors.length > 0) return setValidationErrors(errors);
+    const formData = new FormData();
+    formData.append('brand', brand)
+    formData.append("model_name", model_name);
+    formData.append("price", price);
+    formData.append("about", about);
+    formData.append("description", description);
+    formData.append("image_url", image_url);
+    setImageLoading(true);
+    await dispatch(watchActions.createNewWatch(formData));
+    history.push("/owned");
+  }
 
-    const watchData = {
-    brand,
-    model_name,
-    price,
-    about,
-    description,
-    image_url,
-    owner_id
-    };
-     console.log("This is Watch Data:", watchData)
-    await dispatch(watchActions.createNewWatch(watchData));
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const errors = validate();
 
-    history.push(`/owned`);
-  };
+  //   if (errors.length > 0) return setValidationErrors(errors);
+
+  //   const watchData = {
+  //   brand,
+  //   model_name,
+  //   price,
+  //   about,
+  //   description,
+  //   image_url,
+  //   owner_id
+  //   };
+  //    console.log("This is Watch Data:", watchData)
+  //   await dispatch(watchActions.createNewWatch(watchData));
+
+  //   history.push(`/owned`);
+  // };
 
   useEffect(() => {
     async function fetchData() {
@@ -95,7 +113,8 @@ function AddWatch() {
           </div>
         ))}
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}
+      encType="multipart/form-data">
         <div className="input__container">
           <h2>New Watch</h2>
           <div className="form__input">
@@ -161,9 +180,9 @@ function AddWatch() {
             Liven up your watch with photo
             </p>
             <input
-              type="text"
-              value={image_url}
-              onChange={(e) => setImageUrl(e.target.value)}
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImageUrl(e.target.files[0])}
               required
               placeholder="Submit a link to at least one photo to publish your spot."
             />

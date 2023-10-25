@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { deleteWatch } from "../../store/watch";
 import { useModal } from "../../context/Modal";
+import './DeleteWatchModal.css'
 
 export default function DeleteModal({ watch_data }) {
   console.log("DeleteModal is rendered", watch_data.id);

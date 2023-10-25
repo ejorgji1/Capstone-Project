@@ -16,7 +16,7 @@
 
   /* Form Inputs */
   .input__container h2 {
-    color: green;
+    color: goldenrod;
     margin-bottom: 20px;
   }
 
@@ -50,7 +50,7 @@
   }
 
   .form__button {
-    background-color: green;
+    background-color: goldenrod;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -60,7 +60,7 @@
   }
 
   .form__button:hover {
-    background-color: #00b357;
+    background-color: darkgoldenrod;
   }
 
   /* Drop-down styling */

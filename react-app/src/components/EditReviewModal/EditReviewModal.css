@@ -27,7 +27,7 @@
 }
 
 .submit-button {
-  background-color: rgb(3, 106, 6);
+  background-color: goldenrod;
   color: white;
   padding: 14px 20px;
   margin: 15px 0;
@@ -38,7 +38,7 @@
 }
 
 .submit-button:hover {
-  background-color: darkgreen;
+  background-color: darkgoldenrod;
 }
 
 .submit-button-inactive {
