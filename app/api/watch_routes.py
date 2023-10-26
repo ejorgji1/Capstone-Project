@@ -100,17 +100,17 @@ def edit_watch(id):
     if current_user.id != watch_to_update.owner_id:
         return jsonify({"error": "Unauthorized to edit this watch"}), 403
 
-    # Check if an image is included in the request
+   
     if 'image_url' in request.files and request.files['image_url']:
         new_image = request.files['image_url']
         new_image.filename = get_unique_filename(new_image.filename)
         upload = upload_file_to_s3(new_image)
 
         if 'url' in upload:
-            # Update the image URL if the upload was successful
+           
             watch_to_update.image_url = upload['url']
 
-    # Update other watch attributes
+    
     watch_to_update.brand = request.form['brand']
     watch_to_update.model_name = request.form['model_name']
     watch_to_update.price = request.form['price']

@@ -39,7 +39,7 @@ def single_watch_reviews(id):
     watch = Watch.query.get(id)
     reviews = Review.query.filter_by(watch_id=id).all()
     
-    # Create a list of review dictionaries
+    
     review_list = [review.to_dict() for review in reviews]
     
     return {"watch_reviews": review_list}
@@ -69,13 +69,13 @@ def create_review(id):
             user_id=current_user.id
         )
 
-        # Add and commit the new review to the database
+       
         db.session.add(new_review)
         db.session.commit()
 
         return {"review": new_review.to_dict()}
 
-    # If form validation fails, return errors
+ 
     return {"errors": form.errors}
 
 
@@ -87,7 +87,7 @@ def edit_review(id):
     if not review:
         return {"error": "Review not found"}, 404
 
-    # Check if the logged-in user is the owner of the review
+   
     if review.user_id != current_user.id:
         return {"error": "You are not authorized to edit this review"}, 403
 
@@ -95,11 +95,11 @@ def edit_review(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate():
-        # Update the review with the new data
+      
         review.review_body = form.review_body.data
         review.rating = form.rating.data
 
-        # Commit the changes to the database
+      
         db.session.commit()
 
         return {"review": review.to_dict()}, 200
