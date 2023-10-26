@@ -55,7 +55,7 @@ function UserCart() {
     alert("Checkout Successful!")
     setTimeout(() => {
       history.push('/');
-    }, 3000);
+    }, 2000);
   };
 
   if (!user) {

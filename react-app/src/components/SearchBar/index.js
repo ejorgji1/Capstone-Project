@@ -12,7 +12,7 @@ function SearchBar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Perform search functionality with the query variable
+  
     if(!query){
       return
     }

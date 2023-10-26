@@ -5,12 +5,11 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
-import { NavLink } from 'react-router-dom';
-
+import { NavLink } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
@@ -36,7 +35,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
-    history.push('/')
+    history.push("/");
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -50,30 +49,46 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>Welcome ,{user.username}</li>
-            <li>{user.first_name} {user.last_name}</li>
-            <li>{user.email}</li>
+            <li className="profile-info">Welcome, {user.username}</li>
+            <li className="profile-info">
+              {user.first_name} {user.last_name}
+            </li>
+            <li className="profile-info">{user.email}</li>
             <li className="view-logout-container">
-              <NavLink exact to="/owned" className="view-business-button">View Watch Listings</NavLink>
-              <NavLink exact to="/watch/create-new-watch" className="create-business-button">Create a watch listing</NavLink>
-              <button onClick={handleLogout} className="logout-button">Log Out</button>
+              <NavLink exact to="/owned" className="view-business-button">
+                View Watch Listings
+              </NavLink>
+              <NavLink
+                exact
+                to="/watch/create-new-watch"
+                className="create-business-button"
+              >
+                Create a watch listing
+              </NavLink>
+              <button onClick={handleLogout} id="logout-button">
+                Log Out
+              </button>
             </li>
           </>
         ) : (
           <>
-            <OpenModalButton
-              buttonText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
-              id={'log-in-button'}
-            />
+            <div className="view-logout-container">
+              <OpenModalButton
+                className="login-button-specific"
+                buttonText="Log In"
+                onItemClick={closeMenu}
+                modalComponent={<LoginFormModal />}
+                id={"log-in-button"}
+              />
 
-            <OpenModalButton
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-              id={'sign-up-button'}
-            />
+              <OpenModalButton
+                className="signup-button--specific"
+                buttonText="Sign Up"
+                onItemClick={closeMenu}
+                modalComponent={<SignupFormModal />}
+                id={"sign-up-button"}
+              />
+            </div>
           </>
         )}
       </ul>

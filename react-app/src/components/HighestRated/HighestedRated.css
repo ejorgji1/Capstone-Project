@@ -1,0 +1,61 @@
+.video {
+    width: 100%;
+    display: flex;
+    margin: auto
+}
+
+.highly-rated-container {
+    width: 100%;
+    line-height: 100%;
+    bottom: 0;
+}
+
+.watch-list-title {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.watch-list-items {
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+    justify-content: center;
+}
+
+.watch-item {
+    width: 20%
+}
+.watch-item img{
+    width: 100%;
+    height: auto;
+}
+
+.watch-model {
+    margin-top: 1em;
+    color: rgb(56, 56, 56);
+    display: flex;
+    justify-content: center;
+}
+
+.all-watches {
+    text-align: center;
+  }
+  
+  .all-watches a {
+    text-decoration: none;
+  }
+  
+  .all-watches button {
+    background-color: darkgoldenrod;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .all-watches button:hover {
+    background-color: goldenrod;
+  }

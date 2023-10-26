@@ -15,8 +15,8 @@ function EditWatch() {
       ? state.watch.list.Watches.find((b) => b.id === parseInt(id))
       : null
   );
-  console.log ('ID OF WATCH TO BE EDITED',id)
-  console.log( "WATCH TO BE EDITED", watch)
+  // console.log ('ID OF WATCH TO BE EDITED',id)
+  // console.log( "WATCH TO BE EDITED", watch)
 
   useEffect(() => {
     dispatch(watchActions.getAllWatches());

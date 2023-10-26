@@ -21,7 +21,7 @@ const SearchResults = () => {
       await dispatch(searchWatchByBrand(search_terms))
     }, [dispatch, search_terms])
     
-    console.log("THIS IS SEARCH RESULT ?????", searchResultProducts)
+    // console.log("THIS IS SEARCH RESULT ?????", searchResultProducts)
  
 
     return (

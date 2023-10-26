@@ -32,7 +32,7 @@ export default function DeleteModal({ watch_data }) {
       <div className="deleteText">Are you sure you want to delete this watch listing?</div>
       <div>
         <button
-          class="confirm-yes cursor"
+          className="confirm-yes cursor"
           onClick={handleSubmit}
         >
           Yes (Delete Watch)

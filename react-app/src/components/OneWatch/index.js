@@ -23,8 +23,8 @@ const currentUser = useSelector((state) => state.session.user);
 const user = useSelector((state) => state.session.user);
 const reviews = useSelector((state) => state.reviews.currentWatchReviews);
 const userCart = useSelector((state) => state.cart.cart)
-console.log('THIS IS USER CART',userCart)
-console.log('🥰' ,reviews)
+// console.log('THIS IS USER CART',userCart)
+// console.log('🥰' ,reviews)
 
   useEffect(() => {
     console.log("Fetching watch with id:", id);
@@ -39,7 +39,7 @@ if (!reviews) {
   return <div>Loading Reviews...</div>;
 }
 
-console.log("Watch details:", watch);
+// console.log("Watch details:", watch);
 
 
 

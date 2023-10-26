@@ -7,14 +7,14 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
-  /* Error Message */
+
   .error {
     color: red;
     margin: 0;
     font-size: 14px;
   }
 
-  /* Form Inputs */
+ 
   .input__container h2 {
     color: goldenrod;
     margin-bottom: 20px;
@@ -63,7 +63,7 @@
     background-color: darkgoldenrod;
   }
 
-  /* Drop-down styling */
+ 
   .groupOption {
     background-color: #d6ffff;
   }
