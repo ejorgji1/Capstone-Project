@@ -94,14 +94,24 @@
     margin-top: 1em;
   }
   
-  #post-review-button {
-    width: 75%;
+  /* .beep {
+    width: 50px;
     border-radius: 3em;
     padding: 1.3em 2em;
     background-color: goldenrod; 
     color: white;
     font-size: 14px;
-  }
+  } */
+
+
+
+.beep {
+  padding: 5px 3px; 
+  border-radius: 5px;
+  background-color: goldenrod;
+  color: white;
+  font-size: 16px; 
+}
   
   .individualReview {
     background-color: #f8f9fa;

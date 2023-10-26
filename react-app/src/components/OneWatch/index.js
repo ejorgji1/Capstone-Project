@@ -127,6 +127,7 @@ return (
         buttonText="Post Your Review"
         modalComponent={<PostReviewModal id={id} user={user} />}
         id={"post-review-button"}
+        className="beep"
       />
     )}
 </div>

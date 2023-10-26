@@ -36,9 +36,15 @@ function AddWatch() {
       errors.push("Watch model name must be between 5 and 50 characters.");
     }
 
+    // if (!price) {
+    //   errors.push("Watch price is required.");
+    // }
     if (!price) {
-      errors.push("Watch price is required.");
-    }
+      errors.push("Price is required")
+  }
+  if (isNaN(price)) {
+    errors.push("Price must be a number");
+  }
 
     if (!about || about.length > 500) {
       errors.push("Invalid about text.");
@@ -58,6 +64,7 @@ function AddWatch() {
 
     return errors;
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -197,5 +204,6 @@ function AddWatch() {
     </div>
   );
 }
+
 
 export default AddWatch;
