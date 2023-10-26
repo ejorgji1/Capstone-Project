@@ -128,8 +128,7 @@ def edit_watch(id):
 #     watch_to_update = Watch.query.get(id)
 #     form['csrf_token'].data = request.cookies['csrf_token']
 
-#     if not watch_to_update:
-#         return jsonify({"error": "Watch not found"}), 404
+
 
 #     if current_user.id != watch_to_update.owner_id:
 #         return jsonify({"error": "Unauthorized to edit this watch"}), 403
