@@ -39,7 +39,7 @@ function YourWatches () {
             </div>
             ))
         ) : (
-            <p>Currently you have no watches listed for sale. Will you want to sell one?</p>
+            <p className="no-watch-messages">Currently you have no watches listed for sale. Will you want to sell one?</p>
         )}
         </div>
     );

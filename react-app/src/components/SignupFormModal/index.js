@@ -16,6 +16,11 @@ function SignupFormModal() {
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
 
+	const isValidEmail = (email) => {
+		const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+		return emailRegex.test(email);
+	  };
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
@@ -30,6 +35,11 @@ function SignupFormModal() {
 				"Passwords must match",
 			]);
 		}
+
+		if (!isValidEmail(email)) {
+			setErrors(['Invalid email format']);
+			return;
+		  }
 	};
 
 	return (

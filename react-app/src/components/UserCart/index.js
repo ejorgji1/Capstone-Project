@@ -59,11 +59,11 @@ function UserCart() {
   };
 
   if (!user) {
-    return <div>Please log in to view your cart.</div>;
+    return <div className="cart-messages">Please log in to view your cart.</div>;
   }
 
   if (!cart) {
-    return <div>Your cart is empty.</div>;
+    return <div className="cart-messages">Your cart is empty.</div>;
   }
 
   return (

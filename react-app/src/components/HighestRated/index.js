@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as watchActions from '../../store/watch';
 import videoSource from "../../videos/videoSource.mp4"
@@ -9,11 +9,21 @@ import { Link } from 'react-router-dom';
 
 function TopRatedWatches () {
     const watches = useSelector(state => state.watch.list)
+    const history = useHistory();
+
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(watchActions.getAllWatches());
     }, [dispatch])
+
+    const handleShopAllClick = () => {
+      // Scroll to the top of the page
+      window.scrollTo(0, 0);
+      
+      // Navigate to the /watch/all route
+      history.push('/watch/all');
+    };
 
     let sortedWatches = [];
     if (watches && watches.Watches) {
@@ -29,7 +39,7 @@ function TopRatedWatches () {
 
     return (
         <div className='highly-rated-container'>
-        <video className='video' autoPlay muted loop controls>
+        <video className='video' autoPlay muted loop >
           <source src={videoSource} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -57,11 +67,14 @@ function TopRatedWatches () {
             ))}
           </ul>
         </div>
-        <div className='all-watches'> 
+        {/* <div className='all-watches'> 
       <NavLink to="/watch/all">
         <button>Shop all Watches </button>
       </NavLink>
-    </div>
+    </div> */}
+          <div className="all-watches">
+        <button onClick={handleShopAllClick}>Shop all Watches</button>
+      </div>
         </div>
       );
 }

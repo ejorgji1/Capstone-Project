@@ -128,3 +128,16 @@ body {
   .checkout:hover {
     background-color: goldenrod;
   }
+  .cart-messages {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #555;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }

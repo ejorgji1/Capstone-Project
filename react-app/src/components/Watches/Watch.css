@@ -83,3 +83,16 @@ cursor: pointer;
   color: darkgoldenrod; /* Change text color for the price */
   font-size: 30px; /* Increase font size for the price */
 }
+
+.no-watch-messages {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 80%;
+}
