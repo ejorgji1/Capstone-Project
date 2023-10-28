@@ -53,9 +53,15 @@ function EditWatch() {
       errors.push("Watch model name must be between 5 and 50 characters.");
     }
 
-    if (!values.price) {
-      errors.push("Watch price is required.");
-    }
+    // if (!values.price) {
+    //   errors.push("Watch price is required.");
+    // }
+
+      if (!values.price) {
+    errors.push("Watch price is required.");
+  } else if (isNaN(values.price) || parseFloat(values.price) <= 0) {
+    errors.push("Price must be a positive number.");
+  }
 
     if (!values.about || values.about.length > 500) {
       errors.push("Invalid about text.");

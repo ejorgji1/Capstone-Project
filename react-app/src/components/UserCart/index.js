@@ -87,10 +87,12 @@ function UserCart() {
   </div>
 </div>
       ))}
+      {cart.watches.length > 0 && (
        <div className="cart-total-container">
        <div className="cart-total-image-container">
           <i class="fa-solid fa-cart-shopping cart-total-logo"></i>
             </div>
+      
         <div className="cart-total-info-container">
       <p className="total-price">Total Price: ${totalPrice}</p>
       <button className="delete-cart" onClick={handleDeleteCart}>Delete Cart</button>
@@ -98,9 +100,11 @@ function UserCart() {
         <p>Congratulations, Enjoy your purchase!</p>
       ) : ( */}
         <button className="checkout" onClick={handleCheckout}>Checkout</button>
+      
+          
         </div>
         </div>
-      {/* )} */}
+      )}
     </div>
   );
 }

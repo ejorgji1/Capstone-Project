@@ -39,11 +39,19 @@ function AddWatch() {
     // if (!price) {
     //   errors.push("Watch price is required.");
     // }
-    if (!price) {
-      errors.push("Price is required")
-  }
-  if (isNaN(price)) {
+  //   if (!price) {
+  //     errors.push("Price is required")
+  // }
+  // if (isNaN(price)) {
+  //   errors.push("Price must be a number");
+  // }
+
+  if (!price) {
+    errors.push("Price is required");
+  } else if (isNaN(price)) {
     errors.push("Price must be a number");
+  } else if (parseFloat(price) <= 0) {
+    errors.push("Price cannot be 0 or a negative number");
   }
 
     if (!about || about.length > 500) {
