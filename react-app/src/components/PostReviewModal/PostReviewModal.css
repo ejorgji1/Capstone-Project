@@ -13,18 +13,21 @@
     padding: 20px;
     font-family: "Manrope", sans-serif;
     margin: 20px auto;
+    padding-left: 20px;
 }
 
 .postReviewHeading {
     font-size: 18pt;
     font-weight: bold;
     text-align: center;
+    padding-left: 20px;
 }
 
 .comment-input {
     background-color: green;;
     width: 100%;
     padding: 5px 0px;
+    padding-left: 320px;
 }
 
 .filled {
@@ -44,3 +47,7 @@
     width: 100%;
 }
 
+
+#postReviewContainer .comment-input {
+    padding-left: 5px; 
+}
