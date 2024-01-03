@@ -7,8 +7,7 @@ import './Watch.css';
 function WatchMainPage () {
     const dispatch = useDispatch()
     const watches = useSelector(state => state.watch.list)
-    console.log("WATCH:", watches)
-    console.log(typeof watches)
+
 
     useEffect(() => {
         dispatch(watchActions.getAllWatches());

@@ -9,7 +9,7 @@ function UserCart() {
   const user = useSelector((state) => state.session.user);
   const cart = useSelector((state) => state.cart.cart);
   const history = useHistory();
-  console.log("this is cart from frontend", cart)
+  
 
   const [totalPrice, setTotalPrice] = useState(0);
   const [checkoutComplete, setCheckoutComplete] = useState(false);

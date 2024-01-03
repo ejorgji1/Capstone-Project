@@ -12,7 +12,6 @@ const SearchResults = () => {
 
     const {search_terms}  = useParams()
 
-    // console.log("fdfdsfdfasfdf", search_terms);
 
     const dispatch = useDispatch()
 
@@ -21,7 +20,7 @@ const SearchResults = () => {
       await dispatch(searchWatchByBrand(search_terms))
     }, [dispatch, search_terms])
     
-    // console.log("THIS IS SEARCH RESULT ?????", searchResultProducts)
+
  
 
     return (

@@ -59,3 +59,24 @@
   .all-watches button:hover {
     background-color: goldenrod;
   }
+
+  .footer {
+    background-color: #f0f0f0; 
+    padding: 20px; 
+    text-align: center; 
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer p {
+    margin: 0; 
+  }
+  
+  .footer a {
+    text-decoration: none; 
+    color: #007bff; 
+  }
+  
+  .footer a:hover {
+    text-decoration: underline; 
+    color: #0056b3; 
+  }

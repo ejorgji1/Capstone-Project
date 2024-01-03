@@ -15,8 +15,7 @@ function PostReviewModal({ id, user }) {
   const watch = useSelector(state => state.watch.selectedWatch);
 
 
-  //const user = useSelector(state => state.session.user)
-  //console.log(user)
+
 
   const [errors, setErrors] = useState({});
   const [stars, setStars] = useState(0);

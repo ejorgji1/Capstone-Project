@@ -23,7 +23,7 @@ function YourWatches () {
     const ownedWatches = watches && watches['Watches'].filter(
         watch => watch.owner_id === currentUser.id
     );
-    // console.log("OWNED WATCHES", ownedWatches)
+
 
 
     return (

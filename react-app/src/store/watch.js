@@ -52,10 +52,9 @@ export const setWatch = (watch) => ({
       },
       body: JSON.stringify({ search }),
     });
-    console.log("THIS IS RESPONSE OF SEARHC THUNK", response)
+  
     if (response.ok) {
       const results = await response.json();
-    //console.log("YOOOO SEARCH THUNK ", results);
       dispatch(searchWatch(results));
     } else {
       const errorData = await response.json();
@@ -75,10 +74,8 @@ export const setWatch = (watch) => ({
   
   export const getAllWatches = () => async (dispatch) => {
     const response = await fetch(`/api/watch`);
-    // console.log("this is thunk response", response)
     if (response.ok) {
       const data = await response.json();
-    console.log("ALL WATCHES", data);
       dispatch(setAllWatches(data));
     } else {
       console.error("Thunk Error: Bad Req");
@@ -110,7 +107,6 @@ export const setWatch = (watch) => ({
     const response = await fetch(`/api/watch/${id}`);
     if (response.ok) {
       const watch = await response.json();
-      //console.log("this is thunk response for one wwatch", watch)
       dispatch(setOneWatch(watch));
   
     } else {
@@ -120,8 +116,7 @@ export const setWatch = (watch) => ({
   };
   
   export const editWatch = (id, updatedWatch) => async (dispatch) => {
-    // console.log("This ID:", id)
-    // console.log('This is the update watch:', updatedWatch)
+
     const response = await fetch(`/api/watch/${id}/edit`, {
        method: "PUT",
       // headers: {
@@ -133,7 +128,6 @@ export const setWatch = (watch) => ({
     if (response.ok) {
       const data = await response.json();
       dispatch(updateWatch(data));
-      console.log('THIS IS UPDATED WATCH DATA FROM THUNK', data)
       return data;
     } else {
       console.error("Thunk Error: Failed to edit WATCH");
@@ -141,7 +135,7 @@ export const setWatch = (watch) => ({
   };
   
   export const deleteWatch = (id) => async (dispatch) => {
-    //console.log("id", id)
+
     const response = await fetch(`/api/watch/${id}/delete`, {
       method: 'DELETE',
     });

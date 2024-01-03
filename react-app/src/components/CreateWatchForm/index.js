@@ -21,9 +21,7 @@ function AddWatch() {
   const currentUser = useSelector((state) => state.session.user);
   const owner_id = currentUser ? currentUser.id : null;
 
-  // const urlValidation = (str) => {
-  //   return /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/.test(str);
-  // };
+
 
   const validate = () => {
     const errors = [];
@@ -36,15 +34,7 @@ function AddWatch() {
       errors.push("Watch model name must be between 5 and 50 characters.");
     }
 
-    // if (!price) {
-    //   errors.push("Watch price is required.");
-    // }
-  //   if (!price) {
-  //     errors.push("Price is required")
-  // }
-  // if (isNaN(price)) {
-  //   errors.push("Price must be a number");
-  // }
+
 
   if (!price) {
     errors.push("Price is required");
@@ -65,11 +55,6 @@ function AddWatch() {
     if (!image_url) {
       errors.push = "Preview image is required.";
     }
-
-    // if (image_url && !image_url.match(/(\.png|\.jpg|\.jpeg)\s*$/)) {
-    //   errors.push = "iImage URL must end in .png, .jpg, or .jpeg.";
-    // }
-
     return errors;
   };
 
@@ -91,26 +76,6 @@ function AddWatch() {
     history.push("/owned");
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const errors = validate();
-
-  //   if (errors.length > 0) return setValidationErrors(errors);
-
-  //   const watchData = {
-  //   brand,
-  //   model_name,
-  //   price,
-  //   about,
-  //   description,
-  //   image_url,
-  //   owner_id
-  //   };
-  //    console.log("This is Watch Data:", watchData)
-  //   await dispatch(watchActions.createNewWatch(watchData));
-
-  //   history.push(`/owned`);
-  // };
 
   useEffect(() => {
     async function fetchData() {

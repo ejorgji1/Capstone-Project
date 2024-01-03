@@ -121,14 +121,13 @@ function EditWatch() {
     formData.append("image_url", image_url);
     setImageLoading(true);
 
-     console.log("WATCH UPDATE", formData)
     await dispatch(watchActions.editWatch(id, formData));
     await dispatch(watchActions.fetchOneWatch(id));
     await dispatch(watchActions.getAllWatches());
     await history.push(`/watch/${id}`);
   };
 
-  //console.log('Rendering EditWatch component');
+
 
   return (
     <div className="form__container watch__form">

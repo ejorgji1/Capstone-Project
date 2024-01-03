@@ -18,10 +18,9 @@ function TopRatedWatches () {
     }, [dispatch])
 
     const handleShopAllClick = () => {
-      // Scroll to the top of the page
+
       window.scrollTo(0, 0);
       
-      // Navigate to the /watch/all route
       history.push('/watch/all');
     };
 
@@ -33,8 +32,6 @@ function TopRatedWatches () {
 
     const top4Watches = sortedWatches.slice(0, 4)
     
-// console.log("THIS IS TOP3 WATCHES",top4Watches)
-// console.log("THIS IS SORTED WATCHES",sortedWatches)
 
 
     return (
@@ -75,6 +72,9 @@ function TopRatedWatches () {
           <div className="all-watches">
         <button onClick={handleShopAllClick}>Shop all Watches</button>
       </div>
+      <footer className='footer'>
+        <p> Developed by <a href="https://github.com/ejorgji1">Enea Jorgji</a> - React - Python - Flask - SQLAlchemy - PostgreSQL - Redux</p>
+      </footer>
         </div>
       );
 }

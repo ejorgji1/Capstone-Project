@@ -31,14 +31,14 @@ export const addToCartThunk = (watch_id) => async (dispatch) => {
         },
         body: JSON.stringify({ watch_id }),
     });
-    console.log("THIS IS ADD TO CART THUNK RESPONSE",response)
+ 
     if (!response.ok) {
         const errorData = await response.json();
         return dispatch(actionAddToCart({ error: errorData.errors || { message: 'Failed to add to cart' } }));
     }
     
     const data = await response.json();
-    console.log("THIS IS ADD TO CART THUNK DATA",data)
+ 
     return dispatch(actionAddToCart(data));
     };
 
@@ -49,7 +49,7 @@ export const getUserCartThunk = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         const userCart = data.cart; 
-        console.log("THIS IS GETUSERCARTTHUNK",userCart)
+        
         dispatch(actionGetUserCart(userCart));
     } else {
         console.error('An error occurred:', response.statusText);

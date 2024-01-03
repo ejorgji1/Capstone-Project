@@ -6,9 +6,9 @@ import { useModal } from "../../context/Modal";
 import './DeleteWatchModal.css'
 
 export default function DeleteModal({ watch_data }) {
-  console.log("DeleteModal is rendered", watch_data.id);
+
   const id = watch_data.id
-  console.log("WATCH DATA ID FOR DELETE", id)
+  
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
