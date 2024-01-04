@@ -81,7 +81,7 @@ function UserCart() {
   <img src={watch.image_url} alt={`Image of ${watch.model_name}`} />
     <div className="cart-item-text">
     <p>{watch.model_name}</p>
-    <p>Price: ${watch.price}</p>
+    <p>Price: ${Number(watch.price).toLocaleString()}</p>
     <button onClick={() => handleRemoveWatch(watch.id)}>Remove Watch</button>
     </div>
   </div>
@@ -94,7 +94,7 @@ function UserCart() {
             </div>
       
         <div className="cart-total-info-container">
-      <p className="total-price">Total Price: ${totalPrice}</p>
+      <p className="total-price">Total Price: ${Number(totalPrice).toLocaleString()}</p>
       <button className="delete-cart" onClick={handleDeleteCart}>Delete Cart</button>
       {/* {checkoutComplete ? (
         <p>Congratulations, Enjoy your purchase!</p>

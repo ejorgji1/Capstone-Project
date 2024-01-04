@@ -22,7 +22,7 @@ function WatchMainPage () {
                 <img src={watch.image_url} alt={`Image of ${watch.model_name}`} className='watchMain__image' />
                 <p className="watchMain__name">{watch.model_name}</p>
                 <p className="watchMain__brand">Brand: {watch.brand}</p>
-                <p className="watchMain__price">Price $: {watch.price}</p>
+                <p className="watchMain__price">Price $: {Number(watch.price).toLocaleString()}</p>
                 <Link to={`/watch/${watch.id}`}>View More</Link>
               </div>
             ))

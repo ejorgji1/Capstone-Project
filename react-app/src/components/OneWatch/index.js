@@ -108,7 +108,7 @@ return (
           </button>
         ) : null}
       <p className="brandName">Brand: {watch.brand}</p>
-      <p className="watch-paragraph">Price: ${watch.price}</p>
+      <p className="watch-paragraph">Price: $ {Number(watch.price).toLocaleString()}</p>
       <p className="watch-paragraph">About: {watch.about}</p>
       <p className="watch-paragraph">Description: {watch.description}</p>
       <p className="watch-paragraph">Rating: {watch.avg_rating}</p>
