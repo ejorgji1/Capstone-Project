@@ -60,7 +60,7 @@
     background-color: goldenrod;
   }
 
-  .footer {
+  /* .footer {
     background-color: #f0f0f0; 
     padding: 20px; 
     text-align: center; 
@@ -80,4 +80,62 @@
   .footer a:hover {
     text-decoration: underline; 
     color: #0056b3; 
+  } */
+
+  /* .footer {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
   }
+  
+  .footer p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .social-links {
+    margin-top: 10px;
+  }
+  
+  .social-links a {
+    display: inline-block;
+    margin: 0 8px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .social-links a:hover {
+    color: #007bff;
+  }
+   */
+
+   /* Define the styles for the footer */
+.footer {
+  /* position: fixed; */
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Additional styles for social links, adjust as needed */
+.footer p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 24px;
+  color: #333;
+}
+
+.social-links a:hover {
+  color: #007bff;
+}

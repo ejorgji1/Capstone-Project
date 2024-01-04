@@ -72,9 +72,22 @@ function TopRatedWatches () {
           <div className="all-watches">
         <button onClick={handleShopAllClick}>Shop all Watches</button>
       </div>
-      <footer className='footer'>
+      {/* <footer className='footer'>
         <p> Developed by <a href="https://github.com/ejorgji1">Enea Jorgji</a> - React - Python - Flask - SQLAlchemy - PostgreSQL - Redux</p>
-      </footer>
+      </footer> */}
+      <footer className='footer'>
+  <p>Developed by 
+    <a  target="_blank" rel="noopener noreferrer"> Enea Jorgji</a> - React - Python - Flask - SQLAlchemy - PostgreSQL - Redux
+  </p>
+  <div class="social-links">
+    <a href="https://github.com/ejorgji1" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/enea-jorgji-563b60145/" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+</footer>
         </div>
       );
 }
