@@ -6,12 +6,11 @@ SplendidWatch is an e-commerce website that allows users to buy and sell luxury 
 
 # Introduction 
 SplendidWatch is a website that helps users list their luxury watches for sale and purchase other user's watches as well. Its current functionality includes the following features:
-
-Signing up a new user and logging in as an existing user
-Creating, Reading, Updating and Deleting watch listings 
-Creating, Reading, Updating and Deleting reviews for a watch
-Creating, Reading, Updating, Deleting cart functionality by allowing a logged in user to add watches to his cart.Cart persist even after user is logged out
-Searching for watches by brand
+- Signing up a new user and logging in as an existing user
+- Creating, Reading, Updating and Deleting watch listings 
+- Creating, Reading, Updating and Deleting reviews for a watch
+- Creating, Reading, Updating, Deleting cart functionality by allowing a logged in user to add watches to his cart.Cart persist even after user is logged out
+- Searching for watches by brand
 
 Future functionality includes:
 Keep track of completed orders of a user 
@@ -20,12 +19,12 @@ Keep track of completed orders of a user
 This site uses a Flask-React stack
 
 # Backend:
-Python
-SQLAlchemy
+- Python
+- SQLAlchemy
 # Frontend:
-Javascript
-React
-Redux
+- Javascript
+- React
+- Redux
 
 # Launching  instructions:
 Running the backend server:
