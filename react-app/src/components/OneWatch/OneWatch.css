@@ -132,6 +132,11 @@
   .reviewButtons {
     margin-top: 0.5em;
   }
+
+  .reviewButtons {
+    display: flex;
+    gap: 5px; /* Adjust the gap value as needed */
+  }
   
   #review-edit-button,
   #review-delete-button {
@@ -141,6 +146,7 @@
     font-weight: bold;
     font-size: 14px;
   }
+
   
   #review-edit-button {
     background-color: white;
